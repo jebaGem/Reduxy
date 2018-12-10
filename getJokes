@@ -1,0 +1,13 @@
+const getJokes = require('express').Router();
+var request = require('request');
+
+getJokes.get('/:id', function(req, res, next) {
+   request({
+    uri: 'http://api.icndb.com/jokes/random/'+req.params.id
+   }).pipe(res);
+//    .res.status(200).json(res);
+//    var data = res;
+  
+});
+
+module.exports = getJokes;
